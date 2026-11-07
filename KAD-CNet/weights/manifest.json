@@ -1,0 +1,29 @@
+{
+  "default": "weights/kad_cnet_s_dior_mgl.pt",
+  "checkpoints": [
+    {
+      "name": "KAD-CNet-S (MGL)",
+      "file": "weights/kad_cnet_s_dior_mgl.pt",
+      "checkpoint_key": "model",
+      "cfg": "configs/dior_s_mgl.yaml",
+      "hyp": "configs/hyp.dior_mgl.yaml",
+      "acceleration_config": "inference/config/dior_s_mgl_a100.json",
+      "mAP50": 80.59,
+      "MGL": true,
+      "bytes": 51180713,
+      "sha256": "738ee4afa0723cb1ea4f375364c62f7a99cc85803d78c41eaeaad8702a3ae919"
+    },
+    {
+      "name": "KAD-CNet-S",
+      "file": "weights/kad_cnet_s_dior_base.pt",
+      "checkpoint_key": "ema",
+      "cfg": "configs/dior_s_base.yaml",
+      "hyp": "configs/hyp.dior.yaml",
+      "acceleration_config": "inference/config/dior_s_a100.json",
+      "mAP50": 80.16,
+      "MGL": false,
+      "bytes": 31813365,
+      "sha256": "971692f5bdcb424a954413aba507cdad130bec944a40ee8fb34077884660f66a"
+    }
+  ]
+}

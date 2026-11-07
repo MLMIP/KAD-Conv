@@ -1,0 +1,137 @@
+nc: 20
+depth_multiple: 1.0
+width_multiple: 1.1
+anchors: 3
+backbone:
+- - -1
+  - 1
+  - Conv
+  - - 32
+    - 3
+    - 2
+- - -1
+  - 1
+  - Conv
+  - - 64
+    - 3
+    - 2
+- - -1
+  - 1
+  - ELAN1
+  - - 64
+    - 64
+    - 32
+- - -1
+  - 1
+  - AConv
+  - - 128
+- - -1
+  - 1
+  - RepNCSPELAN4_KADC
+  - - 128
+    - 128
+    - 64
+    - 3
+- - -1
+  - 1
+  - AConv
+  - - 192
+- - -1
+  - 1
+  - RepNCSPELAN4_KADC
+  - - 192
+    - 192
+    - 96
+    - 3
+- - -1
+  - 1
+  - AConv
+  - - 256
+- - -1
+  - 1
+  - RepNCSPELAN4_KADC
+  - - 256
+    - 256
+    - 128
+    - 3
+head:
+- - -1
+  - 1
+  - SPPELAN
+  - - 256
+    - 128
+- - -1
+  - 1
+  - nn.Upsample
+  - - None
+    - 2
+    - nearest
+- - - -1
+    - 6
+  - 1
+  - Concat
+  - - 1
+- - -1
+  - 1
+  - RepNCSPELAN4_KADC
+  - - 192
+    - 192
+    - 96
+    - 3
+- - -1
+  - 1
+  - nn.Upsample
+  - - None
+    - 2
+    - nearest
+- - - -1
+    - 4
+  - 1
+  - Concat
+  - - 1
+- - -1
+  - 1
+  - RepNCSPELAN4_KADC
+  - - 128
+    - 128
+    - 64
+    - 3
+- - -1
+  - 1
+  - AConv
+  - - 96
+- - - -1
+    - 12
+  - 1
+  - Concat
+  - - 1
+- - -1
+  - 1
+  - RepNCSPELAN4_KADC
+  - - 192
+    - 192
+    - 96
+    - 3
+- - -1
+  - 1
+  - AConv
+  - - 128
+- - - -1
+    - 9
+  - 1
+  - Concat
+  - - 1
+- - -1
+  - 1
+  - RepNCSPELAN4_KADC
+  - - 256
+    - 256
+    - 128
+    - 3
+- - - 15
+    - 18
+    - 21
+  - 1
+  - DDetect
+  - - nc
+ch: 3
