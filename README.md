@@ -18,7 +18,21 @@ Weights are on the [Releases](https://github.com/MLMIP/KAD-Conv/releases) page.
 
 ## Citation
 
-If you find this work useful, please cite our paper. The BibTeX entry will be added once the paper is published.
+If you find this work useful, please cite our paper:
+
+```bibtex
+@article{hu2026kernel,
+  title={Kernel Adaptive Deformable Convolution for Remote Sensing Object Detection},
+  author={Hu, Kai and Luo, An and Jiang, Kai and Gao, Xieping},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={XX},
+  number={X},
+  pages={XXXX--XXXX},
+  year={2026},
+  doi={10.1109/TPAMI.2026.XXXXXXX},
+  publisher={IEEE}
+}
+```
 
 ## Acknowledgements
 
